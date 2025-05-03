@@ -70,12 +70,7 @@ vercel
 Follow the prompts to complete the deployment process.
 
 ## API Endpoints
-The service exposes the following RESTful API endpoints:
-- `POST /api/register`: Register a new user.
-- `POST /api/login`: Authenticate an existing user.
-- `GET /api/profile`: Retrieve user profile information.
-- `PUT /api/profile`: Update user profile details.
-- `DELETE /api/profile`: Delete user profile.
+The service exposes the RESTful API endpoints accessible at `/src/routes`
 
 Note: Authentication middleware ensures that only authorized users can access certain endpoints.
 
