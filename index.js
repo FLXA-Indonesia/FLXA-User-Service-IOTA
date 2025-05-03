@@ -5,6 +5,16 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const app = express()
 
+// DOTENV
+const dotenv = require('dotenv')
+dotenv.config()
+
+// DATABASE
+const db = require('./src/config/db.js')
+;(async () => {
+  await db.checkConnection()
+})()
+
 // MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -16,8 +26,9 @@ app.use(cors())
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.send('FLXA User Service IOTA')
+  res.send('FLXA User Service')
 })
+app.use('/user', require('./src/routes/user.js'))
 
 // ROUTE ERROR HANDLING
 app.use((req, res, next) => {
